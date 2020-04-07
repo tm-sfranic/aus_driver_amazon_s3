@@ -725,6 +725,7 @@ function mimetype_from_extension($extension)
         'xbm' => 'image/x-xbitmap',
         'xls' => 'application/vnd.ms-excel',
         'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        'xlsm' => 'application/vnd.ms-excel.sheet.macroEnabled.12',
         'xml' => 'application/xml',
         'xpm' => 'image/x-xpixmap',
         'xwd' => 'image/x-xwindowdump',
