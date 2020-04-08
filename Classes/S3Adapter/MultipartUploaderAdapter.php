@@ -33,6 +33,11 @@ class MultipartUploaderAdapter extends AbstractS3Adapter
     {
         $fileInfo = finfo_open(FILEINFO_MIME_TYPE);
         $contentType = finfo_file($fileInfo, $localFilePath);
+
+        if ($contentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' && pathinfo($localFilePath, PATHINFO_EXTENSION) == 'xlsm') {
+            $contentType = 'application/vnd.ms-excel.sheet.macroEnabled.12';
+        }
+
         finfo_close($fileInfo);
 
         $uploader = new MultipartUploader($this->s3Client, $localFilePath, [
